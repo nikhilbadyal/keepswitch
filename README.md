@@ -39,7 +39,7 @@ return Scaffold(
 Widget settingsList() {
     return ListTile(
         leading: leading,
-        trailing: CustomSwitch(
+        trailing: KeepSwitch(
           value: switchValue!,
           onChanged: enabled ? onToggle : null,
           activeColor: Theme.of(context).accentColor,

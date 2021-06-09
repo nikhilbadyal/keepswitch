@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 enum TogglerShape { Heart }
 
-class CustomSwitch extends StatefulWidget {
-  const CustomSwitch({
+class KeepSwitch extends StatefulWidget {
+  const KeepSwitch({
     required this.value,
     required this.onChanged,
     this.activeColor,
@@ -20,7 +20,7 @@ class CustomSwitch extends StatefulWidget {
     this.togglerShape,
     this.boxShape = BoxShape.circle,
   })  : assert(
-  boxShape == null || togglerShape == null, "You can't provide both"),
+            boxShape == null || togglerShape == null, "You can't provide both"),
         super(key: key);
   final bool value;
   final ValueChanged<bool>? onChanged;
@@ -41,10 +41,10 @@ class CustomSwitch extends StatefulWidget {
   final Color inactiveTextColor;
 
   @override
-  _CustomSwitchState createState() => _CustomSwitchState();
+  _KeepSwitchState createState() => _KeepSwitchState();
 }
 
-class _CustomSwitchState extends State<CustomSwitch>
+class _KeepSwitchState extends State<KeepSwitch>
     with SingleTickerProviderStateMixin {
   late Animation _circleAnimation;
   late AnimationController _animationController;
@@ -57,10 +57,10 @@ class _CustomSwitchState extends State<CustomSwitch>
       duration: const Duration(milliseconds: 50),
     );
     _circleAnimation = AlignmentTween(
-        begin: widget.value ? Alignment.centerRight : Alignment.centerLeft,
-        end: widget.value ? Alignment.centerLeft : Alignment.centerRight)
+            begin: widget.value ? Alignment.centerRight : Alignment.centerLeft,
+            end: widget.value ? Alignment.centerLeft : Alignment.centerRight)
         .animate(CurvedAnimation(
-        parent: _animationController, curve: Curves.easeIn));
+            parent: _animationController, curve: Curves.easeIn));
   }
 
   @override
@@ -78,13 +78,13 @@ class _CustomSwitchState extends State<CustomSwitch>
           onTap: widget.isSwitchDisabled
               ? null
               : () {
-            _animationController.isCompleted
-                ? _animationController.reverse()
-                : _animationController.forward();
-            widget.value
-                ? widget.onChanged!(false)
-                : widget.onChanged!(true);
-          },
+                  _animationController.isCompleted
+                      ? _animationController.reverse()
+                      : _animationController.forward();
+                  widget.value
+                      ? widget.onChanged!(false)
+                      : widget.onChanged!(true);
+                },
           child: Container(
             width: widget.switchWidth ?? 55,
             height: widget.switchHeight ?? 27,
@@ -111,15 +111,15 @@ class _CustomSwitchState extends State<CustomSwitch>
                         decoration: widget.togglerShape == TogglerShape.Heart
                             ? null
                             : BoxDecoration(
-                            shape: widget.boxShape!,
-                            color:
-                            widget.switchButtonColor ?? Colors.white),
+                                shape: widget.boxShape!,
+                                color:
+                                    widget.switchButtonColor ?? Colors.white),
                         child: widget.togglerShape == TogglerShape.Heart
                             ? CustomPaint(
-                          size: const Size(90, 90),
-                          painter: HeartPainter(
-                              widget.switchButtonColor ?? Colors.white),
-                        )
+                                size: const Size(90, 90),
+                                painter: HeartPainter(
+                                    widget.switchButtonColor ?? Colors.white),
+                              )
                             : null,
                       ),
                     ),
