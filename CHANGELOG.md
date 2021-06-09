@@ -2,3 +2,7 @@
 
 * Initial Release
 
+## 0.0.2
+
+* Added Screenshots and Added heart shaped Switch
+

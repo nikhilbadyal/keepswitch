@@ -25,7 +25,7 @@ class KeepSwitch extends StatefulWidget {
   final bool value;
   final ValueChanged<bool>? onChanged;
   final Color? activeColor;
-  final Color inactiveColor;
+  final Color? inactiveColor;
   final Color? switchButtonColor;
   final bool isSwitchDisabled;
   final double? switchHeight;
@@ -33,11 +33,8 @@ class KeepSwitch extends StatefulWidget {
   final String activeText;
   final TogglerShape? togglerShape;
   final BoxShape? boxShape;
-
   final String inactiveText;
-
   final Color activeTextColor;
-
   final Color inactiveTextColor;
 
   @override
