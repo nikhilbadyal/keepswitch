@@ -1,5 +1,26 @@
 # Settings UI for Flutter
 
+  <img src="https://i.imgur.com/1qQ5DAm.jpg" height="150px" alt="">
+<br>
+<br>
+<br>
+  <img src="https://i.imgur.com/UUXFoV5.jpg" height="150px" alt="">
+<br>
+<br>
+<br>
+
+  <img src="https://i.imgur.com/1uBpDpf.jpg" height="150px" alt="">
+<br>
+<br>
+<br>
+  <img src="https://i.imgur.com/CFR3GJV.jpg" height="150px" alt="">
+<br>
+<br>
+<br>
+  <img src="https://i.imgur.com/onXwC6k.jpg" height="150px" alt="">
+<br>
+<br>
+<br>
 ## Installing:
 
 In your pubspec.yaml
