@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 enum TogglerShape { Heart }
@@ -13,29 +15,31 @@ class KeepSwitch extends StatefulWidget {
     this.activeTextColor = Colors.white70,
     this.inactiveTextColor = Colors.white70,
     this.isSwitchDisabled = false,
-    this.switchHeight,
-    this.switchWidth,
-    this.switchButtonColor,
-    Key? key,
+    this.switchHeight = 27,
+    this.switchWidth = 55,
+    this.switchButtonColor = Colors.white,
     this.togglerShape,
-    this.boxShape = BoxShape.circle,
+    this.boxShape,
+    Key? key,
   })  : assert(
-            boxShape == null || togglerShape == null, "You can't provide both"),
+            (boxShape != null && togglerShape == null) ||
+                (boxShape == null && togglerShape != null),
+            "You can't provide both"),
         super(key: key);
   final bool value;
   final ValueChanged<bool>? onChanged;
-  final Color? activeColor;
-  final Color? inactiveColor;
-  final Color? switchButtonColor;
+  final Color inactiveColor;
+  final Color switchButtonColor;
   final bool isSwitchDisabled;
-  final double? switchHeight;
-  final double? switchWidth;
+  final double switchHeight;
+  final double switchWidth;
   final String activeText;
-  final TogglerShape? togglerShape;
-  final BoxShape? boxShape;
   final String inactiveText;
   final Color activeTextColor;
   final Color inactiveTextColor;
+  final BoxShape? boxShape;
+  final TogglerShape? togglerShape;
+  final Color? activeColor;
 
   @override
   _KeepSwitchState createState() => _KeepSwitchState();
@@ -83,8 +87,8 @@ class _KeepSwitchState extends State<KeepSwitch>
                       : widget.onChanged!(true);
                 },
           child: Container(
-            width: widget.switchWidth ?? 55,
-            height: widget.switchHeight ?? 27,
+            width: widget.switchWidth,
+            height: widget.switchHeight,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: _circleAnimation.value == Alignment.centerLeft
@@ -109,13 +113,11 @@ class _KeepSwitchState extends State<KeepSwitch>
                             ? null
                             : BoxDecoration(
                                 shape: widget.boxShape!,
-                                color:
-                                    widget.switchButtonColor ?? Colors.white),
+                                color: widget.switchButtonColor),
                         child: widget.togglerShape == TogglerShape.Heart
                             ? CustomPaint(
                                 size: const Size(90, 90),
-                                painter: HeartPainter(
-                                    widget.switchButtonColor ?? Colors.white),
+                                painter: HeartPainter(widget.switchButtonColor),
                               )
                             : null,
                       ),
