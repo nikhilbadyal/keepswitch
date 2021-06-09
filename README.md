@@ -37,7 +37,7 @@ return Scaffold(
 }
   
 Widget settingsList() {
-    return return ListTile(
+    return ListTile(
         leading: leading,
         trailing: CustomSwitch(
           value: switchValue!,
