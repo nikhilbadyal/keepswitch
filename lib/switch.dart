@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 enum TogglerShape { Heart }
@@ -23,7 +21,8 @@ class KeepSwitch extends StatefulWidget {
     Key? key,
   })  : assert(
             (boxShape != null && togglerShape == null) ||
-                (boxShape == null && togglerShape != null),
+                (boxShape == null && togglerShape != null) ||
+                (boxShape == null && togglerShape == null),
             "You can't provide both"),
         super(key: key);
   final bool value;
@@ -112,7 +111,7 @@ class _KeepSwitchState extends State<KeepSwitch>
                         decoration: widget.togglerShape == TogglerShape.Heart
                             ? null
                             : BoxDecoration(
-                                shape: widget.boxShape!,
+                                shape: widget.boxShape ?? BoxShape.circle,
                                 color: widget.switchButtonColor),
                         child: widget.togglerShape == TogglerShape.Heart
                             ? CustomPaint(
