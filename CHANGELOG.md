@@ -13,3 +13,7 @@
 ## 0.0.4
 
 * Crash Fix
+
+## 0.0.5
+
+* Removed Deprecated Calls
