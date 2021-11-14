@@ -1,6 +1,6 @@
 name: keepswitch
 description: A Beautiful custom Switch for your tiles. With granular control over the look and feel.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/ProblematicDude/keepswitch
 
 environment:

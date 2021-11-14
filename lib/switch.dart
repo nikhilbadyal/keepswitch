@@ -92,7 +92,8 @@ class _KeepSwitchState extends State<KeepSwitch>
                 borderRadius: BorderRadius.circular(20),
                 color: _circleAnimation.value == Alignment.centerLeft
                     ? widget.inactiveColor
-                    : widget.activeColor ?? Theme.of(context).accentColor),
+                    : widget.activeColor ??
+                        Theme.of(context).colorScheme.secondary),
             child: Padding(
               padding: const EdgeInsets.all(4),
               child: FittedBox(
